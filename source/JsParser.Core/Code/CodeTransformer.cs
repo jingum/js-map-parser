@@ -41,7 +41,9 @@ namespace JsParser.Core.Code
 
 		public static string FixRazorSyntax(string source)
 		{
-			return source.Replace("@", string.Empty);
+            //fixed Raore "@" icon bug
+             return Regex.Replace(source, "\"@.*\"", "'$1'");
+            //return source.Replace("@", string.Empty);
 		}
 
 		public static string FixStringScriptBlocks(string code)
